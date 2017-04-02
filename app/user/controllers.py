@@ -26,9 +26,23 @@ def register():
 
         return jsonify(success = True)
 
+@mod_user.route('/login',methods=['GET','POST'])
+def login():
+    try:
+        email = request.form['email']
+        password = request.form['password']
+    except KeyError as e:
+        return jsonify(success = False, message="%s not entered in the corresponding field" % e.args), 400
+    user = User.query.filter(User.email == email).first()
+    if user is None or not user.check_password(password):
+        return jsonify(success=False, message = "Invalid Credentials"),400
+    session['userId'] = user.userId
+    return jsonify(success=True)
+
 @mod_user.route('/users', methods= ['GET','POST'])
 def get_all_users():
     users = User.query.all()
     return render_template('/user/index.html',users=users)
 
-app.run(debug=True)
+@mod_user.route('/')
+# app.run(debug=True)
