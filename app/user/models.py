@@ -15,6 +15,9 @@ class User(db.Model):
 		self.name = name
 		self.couriers = []
 
+	def check_password(self, password):
+        return check_password_hash(self.password, password)
+
 	def serialize(self):
 		return {'userID':	self.userId,
 				'name'	:	self.name,
