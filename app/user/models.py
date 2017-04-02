@@ -3,14 +3,19 @@ from app import db
 
 class User(db.Model):
 	__tablename__='user'
-	userId = db.column(db.Integer,primary_key=True)
-	email = db.column(db.String(80))
-	name = db.column(db.String(80))
+	entry = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	userId = db.Column(db.Integer,primary_key=True, unique=True)
+	email = db.Column(db.String(80))
+	name = db.Column(db.String(80))
+	couriers = dc.Column(db.String)
 
 	def __init__(self, userId, email, name):
 		self.userId = userId
 		self.email = email
 		self.name = name
+		self.couriers = ''
 
-	def __repr__(self):
-		return "User { ID: %r, Email: %r, Name: %r}" %(self.userId, self.email, self.name)
+	def serialize(self):
+		return {'userID':	self.userId,
+				'name'	:	self.name,
+				'email'	:	self.email}
