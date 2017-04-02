@@ -7,13 +7,13 @@ class User(db.Model):
 	userId = db.Column(db.Integer,primary_key=True, unique=True)
 	email = db.Column(db.String(80))
 	name = db.Column(db.String(80))
-	couriers = dc.Column(db.String)
+	couriers = db.Column(db.String)
 
 	def __init__(self, userId, email, name):
 		self.userId = userId
 		self.email = email
 		self.name = name
-		self.couriers = ''
+		self.couriers = []
 
 	def serialize(self):
 		return {'userID':	self.userId,
