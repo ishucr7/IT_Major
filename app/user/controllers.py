@@ -19,4 +19,16 @@ def register():
         couriers = []
         newUsr = User(userId, email , name, couriers)
         db.session.add(newUsr)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except IntegrityError as e:
+            return jsonify(success = False , message= 'This email already exists')
+
+        return jsonify(success = True)
+
+@mod_user.route('/users', methods= ['GET','POST'])
+def get_all_users():
+    users = User.query.all()
+    return render_template('/user/index.html',users=users)
+
+app.run(debug=True)
