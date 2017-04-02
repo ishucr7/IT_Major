@@ -44,5 +44,8 @@ def get_all_users():
     users = User.query.all()
     return render_template('/user/index.html',users=users)
 
-@mod_user.route('/')
+@mod_user.route('/logout',methods=['GET','POST'])
+def logout():
+    session.pop('userId')
+    return jsonify(success=True)
 # app.run(debug=True)
