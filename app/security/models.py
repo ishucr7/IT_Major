@@ -14,6 +14,9 @@ class Security(db.Model):
          self.email = email
          self.name = name
 
+    def check_password(self, password):
+		return check_password_hash(self.password, password)
+
     def serialize(self):
         return {'userID':	self.userId,
 				'name'	:	self.name,
