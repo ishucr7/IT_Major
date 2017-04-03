@@ -52,7 +52,7 @@ $( function() {
 			
 			<div class="row">
 
-				<div class="col-sm-8">
+				<div class="col-sm-7">
 				<table>
 					<thead>
 						<tr>
@@ -83,13 +83,27 @@ $( function() {
 					</tbody>
 				</table>
 				</div>
+				
+				<div class="col-sm-1"></div>
 				<div class="col-sm-4">
 					<fieldset>
 					<legend>Search by Date</legend>
 					<form action="" method="POST">
-					To Date :	<input type="text" class="datepicker" name="to_date">
-					</br>	
-					Till Date: <input type="text" class="datepicker" name="till_date">
+		
+<!-- id of first is SnapHost_Calender2-->
+<!-- id of second is SnapHost_Calender-->
+<!--also the name and id of input is same-->
+
+From : <script type="text/javascript"
+	      src="http://www.snaphost.com/jquery/Calendar.aspx"></script> &nbsp;
+</br>
+To   : <script type="text/javascript">
+$(function () {
+	$("#SnapHost_Calendar2")
+		.datepicker({ showOn: 'both', buttonImage: 'http://www.snaphost.com/jquery/calendar.gif',
+			buttonImageOnly: true, changeMonth: true, showOtherMonths: true, selectOtherMonths: true
+		});});</script>
+<input name="SnapHost_Calendar2" id="SnapHost_Calendar2" type="text" />
 					</form>
 
 					</fieldset>
