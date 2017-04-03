@@ -3,7 +3,7 @@ from sqlalchemy.exc import IntegrityError
 from app import db
 from .models import User
 
-mod_user = Blueprint('user',__name__)
+mod_user = Blueprint('user',__name__,url_prefix='/user')
 
 @mod_user.route('/register', methods=['GET','POST'])
 def register():

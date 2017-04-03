@@ -3,7 +3,7 @@ from sqlalchemy.exc import IntegrityError
 from app import db
 from .models import Security
 
-mod_security = Blueprint('security',__name__)
+mod_security = Blueprint('security',__name__,url_prefix='/security')
 
 @mod_security.route('/register', methods=['GET','POST'])
 def register():
