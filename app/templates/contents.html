@@ -1,0 +1,154 @@
+<nav class="w3-bar w3-black">
+	<a href="#home" class="w3-button w3-bar-item">Home</a>
+	<a href="#band" class="w3-button w3-bar-item">Band</a>
+	<a href="#tour" class="w3-button w3-bar-item">Tour</a>
+	<a href="#contact" class="w3-button w3-bar-item">Contact</a>
+</nav>
+
+
+<!-- Slide Show -->
+<section>
+	<img class="mySlides" src="img_band_la.jpg"
+		       style="width:100%">
+	<img class="mySlides" src="img_band_ny.jpg"
+		       style="width:100%">
+	<img class="mySlides" src="img_band_chicago.jpg"
+		       style="width:100%">
+</section>
+
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+	var i;
+	var x = document.getElementsByClassName("mySlides");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	myIndex++;
+	if (myIndex > x.length) {myIndex = 1}
+	x[myIndex-1].style.display = "block";
+	setTimeout(carousel, 3000);
+}
+</script>
+
+
+
+
+
+
+
+<style>
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: #f1f1f1}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: #3e8e41;
+	}
+</style>
+</head>
+<body>
+
+	<h2>Hoverable Dropdown</h2>
+	<p>Move the mouse over the button to open the dropdown menu.</p>
+
+	<div class="dropdown">
+		<button class="dropbtn">Dropdown</button>
+		<div class="dropdown-content">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+		</div>
+	</div>
+
+
+
+
+
+	<style>
+#mySidenav a {
+	position: absolute;
+	left: -80px;
+	transition: 0.3s;
+	padding: 15px;
+	width: 100px;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 0 5px 5px 0;
+}
+
+	#mySidenav a:hover {
+		left: 0;
+	}
+
+	#about {
+		top: 20px;
+		background-color: #4CAF50;
+	}
+
+	#blog {
+		top: 80px;
+		background-color: #2196F3;
+	}
+
+	#projects {
+		top: 140px;
+		background-color: #f44336;
+	}
+
+	#contact {
+		top: 200px;
+		background-color: #555
+	}
+	</style>
+	</head>
+	<body>
+
+		<div id="mySidenav" class="sidenav">
+			<a href="#" id="about">About</a>
+			<a href="#" id="blog">Blog</a>
+			<a href="#" id="projects">Projects</a>
+			<a href="#" id="contact">Contact</a>
+		</div>
+
+		<div style="margin-left:80px;">
+			<h2>Hoverable Sidenav Buttons</h2>
+			<p>Hover over the buttons in the left side navigation to open them.</p>
+		</div>
+

@@ -1,0 +1,116 @@
+#backg{
+	min-width:100%;
+	min-height:100%;
+	position:fixed;
+	z-index:1;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+#bakg	
+{
+	height: 100%;
+	position:fixed;
+	z-index:1;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
+}
+
+#other{
+	z-index:2;
+	position:relative;
+}
+body,html{
+	height:100%;
+}
+#mh{
+	color:white;
+	text-align:center;
+	font-size:550%;
+}
+
+
+#login{
+	text-align:center;
+	color:white;
+}
+
+
+#mySidenav a {
+	position: absolute;
+	left: -50px;
+	transition: 0.3s;
+	padding: 15px;
+	width: 110px;
+	text-decoration: none;
+	font-size: 17px;
+	color: white;
+	border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+	left: 0;
+}
+
+#about {
+	top: 300px;
+	background-color: #4CAF50;
+}
+
+#rate {
+	top: 360px;
+	background-color: #2196F3;
+}
+
+#developers{
+	top: 420px;
+	background-color: #f44336;
+}
+
+#contact {
+	top: 480px;
+	background-color: #555
+}
+
+.fa {
+	padding: 20px;
+	font-size: 30px;
+	width: 70px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 2px;
+	border-radius: 50%;
+}
+
+
+.fa:hover {
+	opacity: 0.7;
+}
+
+.fa-facebook {
+	background: #3B5998;
+	color: white;
+}
+.fa-google {
+	background: #dd4b39;
+	color: white;
+}
+.fa-youtube {
+	background: #bb0000;
+	color: white;
+}
+
+.fa-skype {
+	background: #00aff0;
+	color: white;
+}
+.fa-yahoo {
+	background: #430297;
+	color: white;
+}
+
