@@ -41,7 +41,7 @@ def login():
 @mod_security.route('/personnels', methods= ['GET','POST'])
 def get_all_personnels():
     personnels = Security.query.all()
-    return render_template('/security/index.html',personnels=personnels)
+    return render_template('../templates/security/index.html',personnels=personnels)
 
 @mod_security.route('/logout',methods=['GET','POST'])
 def logout():
