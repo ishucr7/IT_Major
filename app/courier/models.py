@@ -4,7 +4,7 @@ from app import db
 class Courier(db.Model):
 	__tablename__='courier'
 	entry = db.Column(db.Integer, primary_key=True, autoincrement=True)
-	courierId = db.Column(db.Integer, primary_key=True, unique=True)
+	courierId = db.Column(db.Integer, unique=True)
 	date = db.Column(db.DATE)
 	time = db.Column(db.TIME)
 	taken = db.Column(db.Integer)

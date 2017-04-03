@@ -4,7 +4,7 @@ from app import db
 class User(db.Model):
 	__tablename__='user'
 	entry = db.Column(db.Integer, primary_key=True, autoincrement=True)
-	userId = db.Column(db.Integer,primary_key=True, unique=True)
+	userId = db.Column(db.Integer, unique=True)
 	email = db.Column(db.String(80) , unique =True)
 	name = db.Column(db.String(80))
 	couriers = db.Column(db.String)
@@ -14,10 +14,13 @@ class User(db.Model):
 		self.email = email
 		self.name = name
 		self.couriers = []
-
-	def check_password(self, password):
-        
-            return check_password_hash(self.password, password)
+	# def check_password(self, password):
+# <<<<<<< HEAD
+# 		return check_password_hash(self.password, password)
+# =======
+#
+#             return check_password_hash(self.password, password)
+# >>>>>>> b13f55f1483605fddf0e8ae22087394f50589318
 
 	def serialize(self):
 		return {'userID':	self.userId,
