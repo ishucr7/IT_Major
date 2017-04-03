@@ -6,7 +6,7 @@ import time
 
 mod_courier=Blueprint('courier',__name__)
 
-@mode_courier('/today',methods=['GET','POST'])
+@mod_courier('/today',methods=['GET','POST'])
 def show_todays():
     date=time.strftime("%d/%m/%Y")
     couriers=Courier.query.filter(Courier.date==date).all()

@@ -33,11 +33,14 @@ def requires_auth(f):
 
 # Import a module / component using its blueprint handler variable (mod_auth)
 from app.user.controllers import mod_user
+from app.courier.controllers import mod_courier
+from app.security.controllers import mod_security
 #from app.todo.controllers import mod_todo
 
 # Register blueprint(s)
 app.register_blueprint(mod_user)
-#app.register_blueprint(mod_todo)
+app.register_blueprint(mod_courier)
+app.register_blueprint(mod_security)
 
 # Build the database:
 # This will create the database file using SQLAlchemy
