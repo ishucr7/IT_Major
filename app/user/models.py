@@ -14,9 +14,9 @@ class User(db.Model):
 		self.email = email
 		self.name = name
 		self.couriers = []
-	# def check_password(self, password):
+	def check_password(self, password):
+		return check_password_hash(self.password, password)
 # <<<<<<< HEAD
-# 		return check_password_hash(self.password, password)
 # =======
 #
 #             return check_password_hash(self.password, password)
