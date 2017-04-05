@@ -16,11 +16,11 @@ def register():
             password = request.form['password']
             rpassword = request.form['password_confirm']
         except:
-            flash('Enter all the fields')
+            flask.flash('Enter all the fields')
         if '@' not in email:
-            flash('enter a valid email')
+            flask.flash('enter a valid email')
         if password != rpassword:
-            flash('the passwords do not match')
+            flask.flash('the passwords do not match')
         newUsr = User(email, name, password)
         db.session.add(newUsr)
         try:
@@ -36,7 +36,7 @@ def login():
         # name = request.form['name']
         password = request.form['password']
     except:
-        flash('Enter all the fields')
+        flask.flash('Enter all the fields')
     user = User.query.filter(User.email == email).first()
     if user is None or not user.check_password(user, password):
         return jsonify(success=False, message = "Invalid Credentials"),400
