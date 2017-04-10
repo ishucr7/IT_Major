@@ -23,10 +23,10 @@ def allowed_file(filename):
 # This route will show a form to perform an AJAX request
 # jQuery is loaded to execute the request and update the
 # value of the operation
-@app.route('/')
+'''@app.route('/')
 def index():
     return render_template('ind.html')
-
+'''
 
 # Route that will process the file upload
 @app.route('/upload', methods=['POST'])
@@ -54,9 +54,3 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
-if __name__ == '__main__':
-    app.run(
-        host="0.0.0.0",
-        port=8080,
-        debug=True
-    )

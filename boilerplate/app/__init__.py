@@ -1,5 +1,5 @@
 # Import flask and template operators
-from flask import Flask, render_template, session, jsonify
+from flask import *
 
 # Import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
@@ -13,6 +13,8 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['UPLOAD_FOLDER'] = '/home/alirizwi/it_mm/boilerplate/app/uploads/'
+app.config['ALLOWED_EXTENSIONS'] = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 
 # Define the database object which is imported
 # by modules and controllers
