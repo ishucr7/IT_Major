@@ -6,15 +6,11 @@ from .models import User
 mod_user = Blueprint('user', __name__)
 
 
-
 @mod_user.route('/')
 def default():
-    if session['user_id'] != None:
-        print("loged-in")
-    #   return render_template('login.html')
-        return render_template('test.html')
-    else:
-        print("na ho paya")
+    if 'user_id' in session:
+        user = User.query.filter(User.id == session['user_id']).first()
+        return render_template('test.html',user=user.to_dict())
     return render_template('login.html')
 
 
@@ -47,14 +43,14 @@ def login():
         # return make_response('Invalid credentials entered')
     session['user_id'] = user.id
     #return jsonify(success=True, user=user.to_dict())
-    return render_template('test.html',user=user,error=error)
+    return render_template('test.html',user=user.to_dict(),error=error)
 
 @mod_user.route('/logout')
 def logout():
     session.pop('user_id')
     #return jsonify(success=True)
     return render_template('login.html')
-from flask import make_response,session
+#from flask import make_response,session
 
 #@mod_user.route('/getVal',methods=['GET'])
 
