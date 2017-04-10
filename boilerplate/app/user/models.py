@@ -1,26 +1,28 @@
 from flask_sqlalchemy import SQLAlchemy
 from app import db
-from werkzeug.security import generate_password_hash, \
-    check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
-	__tablename__='user'
-	entry = db.Column(db.Integer, primary_key=True, autoincrement=True)
-	email = db.Column(db.String(80) , unique =True)
-	name = db.Column(db.String(80))
-        # password = db.Column(db.String)
-	def __init__(self, email,name, password):
-		self.email = email
-        	self.name = name
-        	self.set_password(password)
-		# self.name = 
-	def set_password(self, password):
-	        self.pw_hash = generate_password_hash(password)
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(255))
+    email = db.Column(db.String(255), unique=True)
+    password = db.Column(db.String(255))
 
-	def check_password(self, password):
-		return check_password_hash(self.pw_hash , password)
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.password = generate_password_hash(password)
+        
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+    
+    def to_dict(self):
+        return {
+            'id' : self.id,
+            'name': self.name,
+            'email': self.email,
+        }
 
-	def serialize(self):
-		return {'userID':	self.userId,
-				'name'	:	self.name,
-				'email'	:	self.email,}
+    def __repr__(self):
+        return "User<%d> %s" % (self.id, self.name)

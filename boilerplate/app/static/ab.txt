@@ -1,0 +1,16 @@
+		<link rel="icon" href="{{ url_for('static',filename='images/favicon.ico') }}" type="image/x-icon"/>
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/grid.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/grid.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/touchTouch.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/camera.css') }}"/>
+
+		<script src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-migrate-1.2.1.js') }}"></script>
+<script src="{{ url_for('static',filename='js/camera.js') }}"></script>
+<script src="{{ url_for('static',filename='js/touchTouch.jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery.stellar.js') }}"></script>
+<script src="{{ url_for('static',filename='js/script.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery.mobile.customized.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/wow.js') }}"></script>
