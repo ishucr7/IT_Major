@@ -136,6 +136,12 @@ def upload():
         filename = secure_filename(file.filename)
         # Move the file form the temporal folder to
         # the upload folder we setup
+        user = User.query.filter(User.id == session['user_id']).first()
+#        uname = user.name
+  #      user.photoUrl = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+#        if not os.path.exists(tmp):
+#            os.makedirs(tmp)
+   #     print(user.photoUrl)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         # Redirect the user to the uploaded_file route, which
         # will basicaly show on the browser the uploaded file

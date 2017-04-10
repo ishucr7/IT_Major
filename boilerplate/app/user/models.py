@@ -24,5 +24,8 @@ class User(db.Model):
             'email': self.email,
         }
 
+    def uName(self):
+        return self.name
+
     def __repr__(self):
         return "User<%d> %s" % (self.id, self.name)
