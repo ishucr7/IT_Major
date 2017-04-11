@@ -11,17 +11,21 @@ class Photo(db.Model):
     dislikes = db.Column(db.Integer)
    	privacy = db.Column(db.String(255))
     albums=db.relationship('Albums',backref='photo',lazy='dynamic')
-    
-    def __init__(self, name, date,time,likes,dislikes,privacy):
+    photos = db.relationship('Photos',backref='person',lazy='dynamic')
+
+    def __init__(self, name, datetime,privacy):
         self.name = name
         self.datetime=datetime
-        self.likes= likes
-        self.dislikes=dislikes
+        self.likes= 0
+        self.dislikes=0
         self.privacy=privacy
-        
+
   #  def check_password(self, password):
    #     return check_password_hash(self.password, password)
-    
+    def likefunc():
+        self.likes+=1
+    def dislikefunc():
+        self.dislikes+=1
     def to_dict(self):
         return {
             'id' : self.id,
