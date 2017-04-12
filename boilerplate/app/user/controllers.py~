@@ -107,7 +107,9 @@ def create_user():
 
 '''
 
+# This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = 'uploads/'
+# These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 '''
 # For a given file, return whether it's an allowed type or not
@@ -151,6 +153,7 @@ def upload():
 # directory and show it on the browser, so if the user uploads
 # an image, that image is going to be show after the upload
 @mod_user.route('/uploads/<filename>')
-def uploaded_file(filename):
+def uploaded_file(filename):    
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+

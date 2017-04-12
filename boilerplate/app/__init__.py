@@ -5,7 +5,6 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 
 from functools import wraps
-
 # Define the WSGI application object
 app = Flask(__name__)
 
@@ -13,13 +12,17 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['UPLOAD_FOLDER'] = '/home/alirizwi/it_mm/boilerplate/app/uploads/'
+app.config['UPLOAD_FOLDER'] = '/home/apoorav/majorproj/it_mm/boilerplate/app/uploads/'
 app.config['ALLOWED_EXTENSIONS'] = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 
 # Define the database object which is imported
 # by modules and controllers
 db = SQLAlchemy(app)
 
+from app.user.models import User
+from app.photos.models import Photo
+from app.albums.models import Album
+# Sample HTTP error handling
 # Sample HTTP error handling
 @app.errorhandler(404)
 def not_found(error):
