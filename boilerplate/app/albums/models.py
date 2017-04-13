@@ -16,7 +16,7 @@ class Album(db.Model):
     dislikes = db.Column(db.Integer)
     privacy = db.Column(db.String(255))
     photo_id = db.Column(db.Integer, db.ForeignKey('photo.id'))
-        # perrsonalb_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    personalb_id = db.Column(db.Integer,db.ForeignKey('user.id'))
     def __init__(
         self,
         name,

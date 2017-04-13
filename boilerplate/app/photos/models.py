@@ -16,16 +16,12 @@ class Photo(db.Model):
     __tablename__ = 'photo'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(255))
-
     # photo_url=db.Column(postgresql.ARRAY(String(255),primary_key=True)
-
     datetime = db.Column(db.DateTime)
     likes = db.Column(db.Integer)
     dislikes = db.Column(db.Integer)
     privacy = db.Column(db.String(255))
-
     # albums=db.relationship('Albums',backref='photo',lazy='dynamic')
-
     person_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __init__(
@@ -64,7 +60,3 @@ class Photo(db.Model):
 
     def __repr__(self):
         return 'User<%d> %s' % (self.id, self.name)
-
-
-
-			
