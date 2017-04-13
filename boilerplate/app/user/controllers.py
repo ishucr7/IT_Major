@@ -1,12 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 import os
 import time
 from flask import *
 from sqlalchemy.exc import IntegrityError
 from app import db, app
-from models import User
+from .models import User
 
 # We'll render HTML templates and access data sent by POST
 # using the request object from flask. Redirect and url_for
@@ -50,7 +49,7 @@ def login():
     try:
         email = request.form['email']
         password = request.form['password']
-    except KeyError, e:
+    except KeyError as e:
 
        # return jsonify(success=False, message="%s not sent in the request" % e.args), 400
 
@@ -111,7 +110,7 @@ def create_user():
         email = request.form['email']
         password = request.form['password']
         rpassword = request.form['confirm_password']
-    except KeyError, e:
+    except KeyError as e:
 
        # return jsonify(success=False, message="%s not sent in the request" % e.args), 400
 
@@ -130,7 +129,7 @@ def create_user():
     db.session.add(u)
     try:
         db.session.commit()
-    except IntegrityError, e:
+    except IntegrityError as e:
 
        # return jsonify(success=False, message="This email already exists"), 400
 
@@ -206,6 +205,3 @@ def aa():
     # return redirect(url_for('static', filename='templates/gallery.html',user=user.to_dict()))
 
     return render_template('gallery.html', user=user.to_dict())
-
-
-			
