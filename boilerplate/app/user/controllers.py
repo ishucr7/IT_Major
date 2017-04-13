@@ -13,22 +13,28 @@ from werkzeug import secure_filename
 
 mod_user = Blueprint('user', __name__)
 
-
 @mod_user.route('/')
 def default():
     if 'user_id' in session:
         user = User.query.filter(User.id == session['user_id']).first()
-        return render_template('test.html',user=user.to_dict())
+        return render_template('index.html',user=user.to_dict())
     return render_template('login.html')
 
-
-@mod_user.route('/lolo',methods=['GET','POST'])
+@mod_user.route('/llo',methods=['GET','POST'])
 def check_login():
     if 'user_id' in session:
         user = User.query.filter(User.id == session['user_id']).first()
         return jsonify(success=True, user=user.to_dict())
 
     return jsonify(success=False), 401
+
+@mod_user.route('/gall',methods=['GET','POST'])
+def display_gall():
+    if 'user_id' in session:
+        user = User.query.filter(User.id == session['user_id']).first()
+        return render_template('gallery.html',user=user.to_dict())
+    return render_template('login.html')
+
 
 
 @mod_user.route('/login', methods=['POST','GET'])
@@ -50,8 +56,11 @@ def login():
         return redirect(url_for('user.default'))
         # return make_response('Invalid credentials entered')
     session['user_id'] = user.id
+
     #return jsonify(success=True, user=user.to_dict())
-    return render_template('test.html',user=user.to_dict(),error=error)
+    #return render_template('index.html',user=user.to_dict(),error=error)
+    #return render_template('index.html',user=user,error=error)
+    return render_template('index.html',user=user.to_dict(),error=error)
 
 @mod_user.route('/logout')
 def logout():
@@ -78,7 +87,6 @@ def logout():
 @mod_user.route('/register', methods=['POST'])
 def create_user():
     try:
-  #      print("gaba")
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
@@ -107,7 +115,9 @@ def create_user():
 
 '''
 
+# This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = 'uploads/'
+# These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 '''
 # For a given file, return whether it's an allowed type or not
@@ -146,11 +156,17 @@ def upload():
         return redirect(url_for('user.uploaded_file',
                                 filename=filename))
 
+
 # This route is expecting a parameter containing the name
 # of a file. Then it will locate that file on the upload
 # directory and show it on the browser, so if the user uploads
 # an image, that image is going to be show after the upload
 @mod_user.route('/uploads/<filename>')
-def uploaded_file(filename):
+def uploaded_file(filename):    
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+@mod_user.route('/pass_name',methods=['POST','GET'])
+def aa():
+    user = User.query.filter(User.id == session['user_id']).first()
+    #return redirect(url_for('static', filename='templates/gallery.html',user=user.to_dict()))
+    return render_template('gallery.html',user=user.to_dict())

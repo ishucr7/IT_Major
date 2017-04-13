@@ -1,0 +1,19 @@
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/layout.css') }}">
+
+<script src="{{ url_for('static',filename='js/min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/backtotop.js') }}"></script>
+<script src="{{ url_for('static',filename='js/mobilemenu.js') }}"></script>
+
+
+{{ url_for('templates',filename='index.html') }}
+
+
+
+<img src="{{ url_for('static',filename='images/demo/cars.jpeg') }} " alt="">
+
+<img src="{{ url_for('static',filename='images/demo/backgrounds/b_create.jpg') }} " alt="">
+
+
+
+<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/b_create.jpg');">
+
