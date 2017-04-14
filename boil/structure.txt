@@ -1,0 +1,18 @@
+.
+├── app
+│   ├── __init__.py
+│   ├── courses
+│   │   ├── __init__.py
+│   │   ├── controllers.py
+│   │   ├── models.py
+│   ├── enrolment
+│   │   ├── __init__.py
+│   │   ├── controllers.py
+│   │   ├── models.py
+│   └── students
+│       ├── __init__.py
+│       ├── controllers.py
+│       └── models.py
+├── config.py
+├── run.py
+└── requirements.txt

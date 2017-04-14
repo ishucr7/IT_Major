@@ -1,0 +1,41 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function () {
+         $(".like").click(function () {
+             var input = $(this).find('.qty1');
+             input.val(parseInt(input.val())+ 1);
+    
+         });
+     $(".dislike").click(function () {
+         var input = $(this).find('.qty2');
+         input.val(input.val() - 1);
+     });
+  });
+</script>
+
+<link rel="stylesheet" href="like.css">
+
+</head>
+<body>
+
+	<p>{{photo.likes}}</p>
+<div class="container"> 
+
+	<a href="http://0.0.0.0:8080/increment/{{photo.id}}" class="like"><i class="fa fa-thumbs-o-up"></i>  
+		Like <input class="qty1" name="qty1" readonly="readonly" type="text" value="{{photo.likes}}" />
+    </a>
+     <a href="http://0.0.0.0:8080/decrement/{{photo.id}}"  class="dislike"><i class="fa fa-thumbs-o-down"></i> 
+	     Dislike <input class="qty2"  name="qty2" readonly="readonly" type="text" value="{{photo.dislikes}}" />
+    </a>
+</div>
+<div>
+
+	<img src="../uploads/{{photo.name}}" style="width:200px,height:150px;">
+
+	</div>
+</body>
+</html>

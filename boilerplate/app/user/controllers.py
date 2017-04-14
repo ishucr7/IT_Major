@@ -42,6 +42,7 @@ def check_login():
 def display_gall():
     if 'user_id' in session:
         user = User.query.filter(User.id == session['user_id']).first()
+        
         return render_template('gallery.html', user=user.to_dict())
     return render_template('login.html')
 
@@ -192,6 +193,8 @@ def upload():
         print("mapping ho gi")
 	db.session.add(mapp_photo)
 	db.session.commit()
+<<<<<<< HEAD
+        db.create_all()
         return redirect('/photos')
 
 
@@ -199,12 +202,31 @@ def upload():
 
 
 
+=======
+        return redirect('/photos')
+
+
+
+
+
+
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 @mod_user.route('/photos', methods=['POST','GET'])
 def pick_photos():
     print("aa gya")
     user = User.query.filter(User.id == session['user_id']).first()
     print("user mil gya")
     photos=Mapp_Photos.query.filter(Mapp_Photos.userid==user.id).all()
+<<<<<<< HEAD
+    po=[]
+    for i in photos:
+        o=Photo.query.filter(Photo.id==i.photoid).first()
+        po.append(o)
+   
+    if po is None :
+    	print("none")
+    return render_template('gallery.html',photos=po,user=user.to_dict())
+=======
     
    
     po=[]
@@ -216,6 +238,7 @@ def pick_photos():
     if photos is None :
     	print("none")
     return render_template('force.html',photos=po,user=user.to_dict())
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 
         # Redirect the user to the uploaded_file route, which
         # will basicaly show on the browser the uploaded fileb
@@ -229,15 +252,33 @@ def pick_photos():
 # directory and show it on the browser, so if the user uploads
 # an image, that image is going to be show after the upload
 
-@mod_user.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+@mod_user.route('/display/<fileid>')
+def uploaded_file(fileid):
+    user = User.query.filter(User.id == session['user_id']).first()
+    photo=Photo.query.filter(Photo.id==fileid).first()
+    return render_template('like.html', user=user.to_dict(),photo=photo)
+    #return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
-@mod_user.route('/pass_name', methods=['POST', 'GET'])
-def aa():
+@mod_user.route('/increment/<photoid>')
+def aa(photoid):
     user = User.query.filter(User.id == session['user_id']).first()
 
     # return redirect(url_for('static', filename='templates/gallery.html',user=user.to_dict()))
+    photo=Photo.query.filter(Photo.id==photoid).first()
+    photo.likefunc()
+    db.session.commit()
+    return redirect(url_for('user.uploaded_file',fileid=photo.id))
 
-    return render_template('gallery.html', user=user.to_dict())
+    #return render_template('like.html', user=user.to_dict(),photo=photo)
+
+@mod_user.route('/decrement/<photoid>')
+def da(photoid):
+    user = User.query.filter(User.id == session['user_id']).first()
+
+    # return redirect(url_for('static', filename='templates/gallery.html',user=user.to_dict()))
+    photo= Photo.query.filter(Photo.id==photoid).first()
+    photo.dislikefunc()
+    db.session.commit()
+    return redirect(url_for('user.uploaded_file',fileid=photo.id))
+    #return render_template('like.html', user=user.to_dict(),photo=photo)

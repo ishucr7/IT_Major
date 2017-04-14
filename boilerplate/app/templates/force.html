@@ -1,4 +1,6 @@
 <html>
+<<<<<<< HEAD
+=======
 
 <head>
 <style>
@@ -8,6 +10,7 @@ width:150px;
 }
 </style>
 </head>
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 <body>
 
 <div>
@@ -18,8 +21,14 @@ lolo
 <div>
 {% for photo in photos %}
 <div>{{ photo.privacy }}</div>
+<<<<<<< HEAD
+
+<div><img src="../uploads/{{photo.name}}"</div>
+
+=======
 <div>{{ photo.name }}</div>
 <img id="p" src = "../uploads/{{photo.name}}" >
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 {% endfor %}
 </div>
 

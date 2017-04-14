@@ -18,6 +18,9 @@ class Photo(db.Model):
     __tablename__ = 'photo'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(255))
+    #ul = db.Column(db.String(255))
+    #name = db.Column(db.String(255))
+
     # photo_url=db.Column(postgresql.ARRAY(String(255),primary_key=True)
     datetime = db.Column(db.DateTime)
     likes = db.Column(db.Integer)
@@ -27,6 +30,14 @@ class Photo(db.Model):
     # albums=db.relationship('Albums',backref='photo',lazy='dynamic')
     # person_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+<<<<<<< HEAD
+    def __init__(self,name,privacy):
+
+        self.name = name
+        self.privacy = privacy
+        #self.ul = str(ul)
+        self.datetime = datetime.now()
+=======
     def __init__(
         self,
         name,
@@ -37,25 +48,35 @@ class Photo(db.Model):
         self.name = name
         self.datetime = datetime.now()
     #    self.url = url
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
         self.likes = 0
         self.dislikes = 0
-        self.privacy = privacy
 
     #  def check_password(self, password):
     #     return check_password_hash(self.password, password)
 
-    def likefunc():
-        self.likes += 1
+    def likefunc(self):
+        self.likes =self.likes+1
 
-    def dislikefunc():
-        self.dislikes += 1
+    def dislikefunc(self):
+        self.dislikes =self.dislikes-1
 
+<<<<<<< HEAD
+    def assignurl(ul):
+        self.photo_url.append(ul)
+=======
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 
     def to_dictp(self):
         return {
             'id': self.id,
             'name': self.name,
+<<<<<<< HEAD
+
+            #'ul':  self.ul,
+=======
      #       'url':  self.url,
+>>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
             'datetime': self.datetime,
             'dislikes': self.dislikes,
             'likes': self.likes,

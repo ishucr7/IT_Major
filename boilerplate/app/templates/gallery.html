@@ -81,7 +81,7 @@ background-image:url('../static/images/demo/backgrounds/b_galleryi.jpg');
     <!-- ################################################################################################ -->
     <ul class="clear">
       <li><a href="http://0.0.0.0:8080">Home</a></li>
-    <li><a class="drop" href="http://0.0.0.0:8080/gall">Gallery</a>
+    <li><a class="drop" href="http://0.0.0.0:8080/photos">Gallery</a>
         <ul>
 
 	  <!-- replace the below with 1) something special   2 other's file ) -->	  
@@ -171,10 +171,9 @@ background-image:url('../static/images/demo/backgrounds/b_galleryi.jpg');
           <ul class="nospace clear">
 <!-- use that automatic function which shows all the images in the folder-->
 
-            <li class="one_quarter first"><a href="#"><img src="{{ url_for('static',filename='images/demo/gallery/01.png') }} " alt=""></a></li>
- 
-<li class="one_quarter"><a href="#"><img src="../static/images/demo/gallery/01.png" alt=""></a></li>
-           
+{% for i in photos %}
+<li class="one_quarter"><a href="http://0.0.0.0:8080/display/{{i.id}}"><img src="../uploads/{{i.name}}" alt=""></a><p>{{i.id}}</p></li>
+{% endfor %}
 
 
           </ul>
