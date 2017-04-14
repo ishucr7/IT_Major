@@ -9,7 +9,7 @@ from app import db, app
 from .models import User
 from app.photos.models import Photo
 from app.mapp_photos.models import Mapp_Photos
-
+from app.comments.models import Comment
 # We'll render HTML templates and access data sent by POST
 # using the request object from flask. Redirect and url_for
 # will be used to redirect the user once the upload is done
@@ -195,11 +195,6 @@ def upload():
 	db.session.commit()
         return redirect('/photos')
 
-
-
-
-
-
 @mod_user.route('/photos', methods=['POST','GET'])
 def pick_photos():
     print("aa gya")
@@ -227,11 +222,32 @@ def pick_photos():
 # directory and show it on the browser, so if the user uploads
 # an image, that image is going to be show after the upload
 
+
+
+
+@mod_user.route('/addComment/<photoid>',methods=['POST'])
+def addComment(photoid):
+    user = User.query.filter(User.id == session['user_id']).first()
+    username =user.name 
+    text = request.form['text']
+    userid=user.id
+    
+    comment = Comment(text,userid,username,photoid)
+    db.session.add(comment)
+    db.session.commit()
+    
+    return redirect(url_for('user.uploaded_file',fileid = photoid))
+
+
+
+
 @mod_user.route('/display/<fileid>')
 def uploaded_file(fileid):
     user = User.query.filter(User.id == session['user_id']).first()
     photo=Photo.query.filter(Photo.id==fileid).first()
-    return render_template('like.html', user=user.to_dict(),photo=photo)
+    comment=Comment.query.filter(photo.id==Comment.photoid)
+    
+    return render_template('like.html', user=user.to_dict(),photo=photo,comments=comment)
     #return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 

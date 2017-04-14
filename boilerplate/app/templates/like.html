@@ -19,7 +19,14 @@ $(function () {
 
 <link rel="stylesheet" href="like.css">
 
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+	 
+
+
 <body>
 
 	<p>{{photo.likes}}</p>
@@ -31,10 +38,29 @@ $(function () {
      <a href="http://0.0.0.0:8080/decrement/{{photo.id}}"  class="dislike"><i class="fa fa-thumbs-o-down"></i> 
 	     Dislike <input class="qty2"  name="qty2" readonly="readonly" type="text" value="{{photo.dislikes}}" />
     </a>
+
+
+</div>
+<div>
+	{% for com in comments %}
+	<div class="container">
+		    <div class="panel panel-default">
+			        <div class="panel-body">{{com.text}}</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+<h5>Enter comment<h5>
+<div>
+	<form action="http://0.0.0.0:8080/addComment/{{photo.id}}" method="POST">
+	<input type="text" name="text" required/>
+	<input type="submit" value="Comment"/>
+	</form>
 </div>
 <div>
 
-	<img src="../uploads/{{photo.name}}" style="width:200px,height:150px;">
+	<img src="../static/uploads/{{photo.name}}" style="width:200px,height:150px;">
 
 	</div>
 </body>

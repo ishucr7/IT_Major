@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['UPLOAD_FOLDER'] = '/home/aashish/itws-html/boilerplate/app/static/uploads/'
+app.config['UPLOAD_FOLDER'] = '/home/aashish/ITWS-2/IT____MAJOR/it_mm/boilerplate/app/static/uploads/'
 app.config['ALLOWED_EXTENSIONS'] = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 
 # Define the database object which is imported
