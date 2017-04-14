@@ -193,8 +193,6 @@ def upload():
         print("mapping ho gi")
 	db.session.add(mapp_photo)
 	db.session.commit()
-<<<<<<< HEAD
-        db.create_all()
         return redirect('/photos')
 
 
@@ -202,22 +200,12 @@ def upload():
 
 
 
-=======
-        return redirect('/photos')
-
-
-
-
-
-
->>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 @mod_user.route('/photos', methods=['POST','GET'])
 def pick_photos():
     print("aa gya")
     user = User.query.filter(User.id == session['user_id']).first()
     print("user mil gya")
     photos=Mapp_Photos.query.filter(Mapp_Photos.userid==user.id).all()
-<<<<<<< HEAD
     po=[]
     for i in photos:
         o=Photo.query.filter(Photo.id==i.photoid).first()
@@ -226,19 +214,6 @@ def pick_photos():
     if po is None :
     	print("none")
     return render_template('gallery.html',photos=po,user=user.to_dict())
-=======
-    
-   
-    po=[]
-    for i in photos:
-	o=Photo.query.filter(Photo.id==i.photoid).first()
-     	po.append(o)
-    print(po)
-
-    if photos is None :
-    	print("none")
-    return render_template('force.html',photos=po,user=user.to_dict())
->>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 
         # Redirect the user to the uploaded_file route, which
         # will basicaly show on the browser the uploaded fileb

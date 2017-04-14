@@ -26,29 +26,15 @@ class Photo(db.Model):
     likes = db.Column(db.Integer)
     dislikes = db.Column(db.Integer)
     privacy = db.Column(db.String(255))
-    #url = db.Column(db.String(255))
     # albums=db.relationship('Albums',backref='photo',lazy='dynamic')
     # person_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-<<<<<<< HEAD
     def __init__(self,name,privacy):
 
         self.name = name
         self.privacy = privacy
         #self.ul = str(ul)
         self.datetime = datetime.now()
-=======
-    def __init__(
-        self,
-        name,
-     #   url,
-        privacy,
-        ):
-
-        self.name = name
-        self.datetime = datetime.now()
-    #    self.url = url
->>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
         self.likes = 0
         self.dislikes = 0
 
@@ -61,22 +47,15 @@ class Photo(db.Model):
     def dislikefunc(self):
         self.dislikes =self.dislikes-1
 
-<<<<<<< HEAD
     def assignurl(ul):
         self.photo_url.append(ul)
-=======
->>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
 
     def to_dictp(self):
         return {
             'id': self.id,
             'name': self.name,
-<<<<<<< HEAD
 
             #'ul':  self.ul,
-=======
-     #       'url':  self.url,
->>>>>>> dc4f3caaa76633b56e88bb527ab7d888aa4697b8
             'datetime': self.datetime,
             'dislikes': self.dislikes,
             'likes': self.likes,
