@@ -3,16 +3,19 @@ from flask import *
 from sqlalchemy.exc import IntegrityError
 from app import db,app
 from .models import Mapp_Photos
-
+from app.user.models import User
 from werkzeug import secure_filename
 
 mod_mapp = Blueprint('mapp_photo', __name__)
 
-@mod_mapp.route('/<username>/photos',methods=['GET','POST'])
+@mod_mapp.route('/photos',methods=['GET','POST'])
 def pick_photos():
-    name=User.query.filter(User.name==username).first()
-    photos=Mapp_Photos.query.filter(Mapp_Photos.userid==name.id).all()
-    return render_template('gallery.html',photos=photos)
+	print("aa gya")
+	user = User.query.filter(User.id == session['user_id']).first()
+	print("user mil gya")
+	photos=Mapp_Photos.query.filter(Mapp_Photos.userid==user.id).all()
+    print("photo")
+    return render_template('gallery.html',photos=photos,user=user.to_dict())
 
 
 '''

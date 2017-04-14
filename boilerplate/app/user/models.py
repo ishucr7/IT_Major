@@ -16,7 +16,7 @@ class User(db.Model):
     name = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
-    photos = db.relationship('Photo', backref='person', lazy='dynamic')
+    #photos = db.relationship('Photo', backref='person', lazy='dynamic')
 
     # albums = db.relationship('Album',backref='personalb',lazy='dynamic')
 

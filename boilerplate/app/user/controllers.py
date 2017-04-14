@@ -4,8 +4,11 @@ import os
 import time
 from flask import *
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.ext.declarative import declarative_base
 from app import db, app
 from .models import User
+from app.photos.models import Photo
+from app.mapp_photos.models import Mapp_Photos
 
 # We'll render HTML templates and access data sent by POST
 # using the request object from flask. Redirect and url_for
@@ -174,18 +177,51 @@ def upload():
         user = User.query.filter(User.id == session['user_id']).first()
 
 #        uname = user.name
-  #      user.photoUrl = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        #tmp = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        tmp = app.config['UPLOAD_FOLDER']+filename
 #        if not os.path.exists(tmp):
 #            os.makedirs(tmp)
    #     print(user.photoUrl)
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        photo = Photo(filename,"private")
+        db.session.add(photo)
+        db.session.commit()
+        print("photo ban gi")
+        mapp_photo = Mapp_Photos(user.id,photo.id)
+        print("mapping ho gi")
+	db.session.add(mapp_photo)
+	db.session.commit()
+        return redirect('/photos')
+
+
+
+
+
+
+@mod_user.route('/photos', methods=['POST','GET'])
+def pick_photos():
+    print("aa gya")
+    user = User.query.filter(User.id == session['user_id']).first()
+    print("user mil gya")
+    photos=Mapp_Photos.query.filter(Mapp_Photos.userid==user.id).all()
+    
+   
+    po=[]
+    for i in photos:
+	o=Photo.query.filter(Photo.id==i.photoid).first()
+     	po.append(o)
+    print(po)
+
+    if photos is None :
+    	print("none")
+    return render_template('force.html',photos=po,user=user.to_dict())
 
         # Redirect the user to the uploaded_file route, which
-        # will basicaly show on the browser the uploaded file
-
-        return redirect(url_for('user.uploaded_file',
-                        filename=filename))
+        # will basicaly show on the browser the uploaded fileb
+        # return redirect(url_for('bla',filename=filename,user=user))
+        #return redirect(url_for('user.uploaded_file',
+         #               filename=filename))
 
 
 # This route is expecting a parameter containing the name

@@ -3,9 +3,11 @@
 
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.declarative import declarative_base
 from app import db, app
 from werkzeug.security import generate_password_hash, \
     check_password_hash
+from datetime import datetime
 
 
 # from app.user.models import User
@@ -21,18 +23,20 @@ class Photo(db.Model):
     likes = db.Column(db.Integer)
     dislikes = db.Column(db.Integer)
     privacy = db.Column(db.String(255))
+    #url = db.Column(db.String(255))
     # albums=db.relationship('Albums',backref='photo',lazy='dynamic')
-    person_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # person_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __init__(
         self,
         name,
-        datetime,
+     #   url,
         privacy,
         ):
 
         self.name = name
-        self.datetime = datetime
+        self.datetime = datetime.now()
+    #    self.url = url
         self.likes = 0
         self.dislikes = 0
         self.privacy = privacy
@@ -46,13 +50,12 @@ class Photo(db.Model):
     def dislikefunc():
         self.dislikes += 1
 
-    def assignurl(url):
-        self.photo_url.append(url)
 
-    def to_dict(self):
+    def to_dictp(self):
         return {
             'id': self.id,
             'name': self.name,
+     #       'url':  self.url,
             'datetime': self.datetime,
             'dislikes': self.dislikes,
             'likes': self.likes,

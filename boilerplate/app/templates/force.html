@@ -1,0 +1,27 @@
+<html>
+
+<head>
+<style>
+#p{
+height:100px;
+width:150px;
+}
+</style>
+</head>
+<body>
+
+<div>
+<p>
+lolo
+</p>
+<div>{{user.name}}</div>
+<div>
+{% for photo in photos %}
+<div>{{ photo.privacy }}</div>
+<div>{{ photo.name }}</div>
+<img id="p" src = "../uploads/{{photo.name}}" >
+{% endfor %}
+</div>
+
+</body>
+</html>

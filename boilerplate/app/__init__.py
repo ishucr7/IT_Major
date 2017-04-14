@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['UPLOAD_FOLDER'] = '/home/apoorav/majorproj/it_mm/boilerplate/app/uploads/'
+app.config['UPLOAD_FOLDER'] = '/home/alirizwi/it_mm/boilerplate/app/uploads/'
 app.config['ALLOWED_EXTENSIONS'] = set(['bmp', 'png', 'jpg', 'jpeg', 'gif'])
 
 # Define the database object which is imported
@@ -22,6 +22,8 @@ db = SQLAlchemy(app)
 from app.user.models import User
 from app.photos.models import Photo
 from app.albums.models import Album
+from app.mapp_photos.models import Mapp_Photos
+
 # Sample HTTP error handling
 # Sample HTTP error handling
 @app.errorhandler(404)
