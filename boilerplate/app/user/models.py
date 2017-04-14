@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 from flask_sqlalchemy import SQLAlchemy
 from app import db, app
 from werkzeug.security import generate_password_hash, \
@@ -16,7 +17,8 @@ class User(db.Model):
     name = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
-    #photos = db.relationship('Photo', backref='person', lazy='dynamic')
+
+    # photos = db.relationship('Photo', backref='person', lazy='dynamic')
 
     # albums = db.relationship('Album',backref='personalb',lazy='dynamic')
 
@@ -26,6 +28,7 @@ class User(db.Model):
         email,
         password,
         ):
+
         self.name = name
         self.email = email
         self.password = generate_password_hash(password)
@@ -41,3 +44,7 @@ class User(db.Model):
 
     def __repr__(self):
         return 'User<%d> %s' % (self.id, self.name)
+
+
+
+			

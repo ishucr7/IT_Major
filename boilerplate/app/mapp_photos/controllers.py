@@ -36,3 +36,4 @@ def pick_user():
 def display_photo():
     return redirect(url_for('user.uploaded_file',photo_name=photo_name))
     
+			
