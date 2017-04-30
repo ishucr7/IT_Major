@@ -17,7 +17,8 @@ class User(db.Model):
     name = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
-
+    dp = db.Column(db.String(255))
+    
     # photos = db.relationship('Photo', backref='person', lazy='dynamic')
 
     # albums = db.relationship('Album',backref='personalb',lazy='dynamic')
@@ -32,12 +33,13 @@ class User(db.Model):
         self.name = name
         self.email = email
         self.password = generate_password_hash(password)
+        self.dp='pro.jpg'
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
-        return {'id': self.id, 'name': self.name, 'email': self.email}
+        return {'id': self.id, 'name': self.name, 'email': self.email,'dp':self.dp}
 
     def uName(self):
         return self.name

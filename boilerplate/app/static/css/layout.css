@@ -48,11 +48,11 @@ File: Layout CSS
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:200px 0;}
+#pageintro{padding:50px 0;}
 #pageintro *{word-wrap:break-word;}
 #pageintro .heading{margin-bottom:20px; font-size:5rem; font-weight:400;}
 #pageintro p{font-size:1.2rem;}
-#pageintro footer{margin-top:50px;}
+#pageintro footer{margin-top:40px;}
 
 
 /* Content Area
@@ -191,6 +191,15 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 #breadcrumb li a::after{top:3px; right:0; content:"\f101";}
 #breadcrumb li:last-child a{margin:0; padding:0;}
 #breadcrumb li:last-child a::after{display:none;}
+
+/* Breadcrumba */
+#breadcrumba{padding:15px 0 15px;}
+#breadcrumba ul{margin:0 0 10px 0; padding:0 0 8px 0; list-style:none; text-transform:uppercase;}
+#breadcrumba li{display:inline-block; margin:0 6px 0 0; padding:0;}
+#breadcrumba li a{display:block; position:relative; margin:0; padding:0 12px 0 0; font-size:12px;}
+#breadcrumba li a::after{top:3px; right:0; content:"\f101";}
+#breadcrumba li:last-child a{margin:0; padding:0;}
+#breadcrumba li:last-child a::after{display:none;}
 
 /* Sidebar Navigation */
 .sidebar nav{display:block; width:100%;}
@@ -411,6 +420,7 @@ table a, #comments a{background-color:inherit;}
 
 	#header{text-align:center;}
 	#header #logo{margin:0 0 30px 0;}
+	#header #loga{margin:0 0 10px 0;}
 
 	#pageintro .heading{font-size:2rem;}
 }

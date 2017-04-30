@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+	Template Name: Algenius
+	Author: <a href="http://www.os-templates.com/">OS Templates</a>
+	Author URI: http://www.os-templates.com/
+	Licence: Free to use under our free template licence terms
+	Licence URI: http://www.os-templates.com/template-terms
+-->
+<html lang="">
+	<head>
+		<title>Photo Gallery</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="{{ url_for('static',filename='css/layout.css') }}" rel="stylesheet" type="text/css" media="all">
+
+		<style>a:visited {
+color: black;
+
+		}
+		#hid{
+			display:none;
+		}
+		</style>
+
+		<style>
+#pkili{
+
+	background-image:url("../static/images/demo/backgrounds/b_develepors.jpeg");
+}
+
+#pkilu{
+
+	background-image:url("../static/images/demo/backgrounds/b_create.jpg");
+}
+#cycle{
+
+	background-image:url("../static/images/demo/backgrounds/cycle_user_name.jpg");
+}
+		</style>
+
+
+	</head>
+	<body id="top">
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+
+		<div class="wrapper row0">
+			<div id="topbar" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<div class="fl_left">
+					<ul>
+						<li><i class="fa fa-phone"></i>+91-8437740902</li>
+						<li><i class="fa fa-envelope-o"></i> aashishgaba097@gmail.com</li>
+					</ul>
+				</div>
+				<div class="fl_right">
+					<ul>
+						<li><a href="http://0.0.0.0:8080"><i class="fa fa-lg fa-home"></i></a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</div>
+				<!-- ################################################################################################ --> 
+			</div>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row1">
+			<header id="header" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<div id="logo" class="fl_left">
+					<h1>
+<a href="http://0.0.0.0:8080">Photo Gallery</a></h1>
+				</div>
+				<div id="quickinfo" class="fl_right">
+					<ul class="nospace inline">
+						<li><strong>Apoorav Kr Singh:</strong><br>
+							+91-8053455954</li>
+						<li><strong>Ali Rizwi:</strong><br>
+							+91-8919658830</li>
+					</ul>
+				</div>
+				<!-- ################################################################################################ --> 
+			</header>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row2">
+			<nav id="mainav" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<ul class="clear">
+					<li class="active"><a href="http://0.0.0.0:8080">Home</a></li>
+					<li>
+						<a class="drop" href="http://0.0.0.0:8080/photos">Gallery</a>
+						
+	      <ul>
+
+	      <!-- replace the below with 1) something special   2 other's file ) -->	  
+	      <li>
+		      <a href="pages/full-width.html">Full Width</a>
+	      </li>
+	      </ul>
+					</li>
+
+				</ul>
+				<!-- ################################################################################################ --> 
+			</nav>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper bgded overlay" id="cycle" >
+			<article id="pageintro" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+			<h3 class="heading">{{user.name}} </h3>
+			<p>The memories should be captured and kept safe :-)</p>
+			
+
+						<footer><a class="btn" href="#">lol remove it !</a></footer>
+			<!-- ################################################################################################ --> 
+			</article>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row3">
+			<main class="hoc container clear"> 
+			<!-- main body --> 
+			<!-- ################################################################################################ -->
+			<ul class="nospace group">
+				<li class="one_third first">
+					<article><i class="btmspace-30 fa fa-3x fa-american-sign-language-interpreting"></i>
+						<h6 class="heading font-x1">Your Albums</h6>
+						<p class="btmspace-30">It's always been your favourite and would continue to be the same [&hellip;]</p>
+						<footer><a class="btn" href="../../slide/SlidingHeaderLayout/layout-multi.html">My Albums &rsaquo;</a></footer>
+					</article>
+				</li>
+
+				<li class="one_third">
+					<article><i class="btmspace-30 fa fa-3x fa-expeditedssl"></i>
+						<h6 class="heading font-x1">Gallery !!</h6>
+						<p class="btmspace-30">Directly to Photos ;-) [&hellip;]</p>
+						<footer><a class="btn" href="http://0.0.0.0:8080/photos">Let's Go !&rsaquo;</a></footer>
+					</article>
+				</li>
+			</ul>
+			<!-- ################################################################################################ --> 
+			<!-- / main body -->
+			<div class="clear"></div>
+			</main>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+
+
+
+		<!--PLEASE CHEK HERE WHAT TO DO I CAN'T UNDERSTAND-->
+
+
+
+
+
+		<div class="wrapper bgded overlay" id="pkilu" >
+
+			<!--style="background-image:url('{{ url_for('static',filename='images/demo/backgrounds/b_create.jpg') }}
+	   ');"-->
+
+			<section class="hoc container clear"> 
+				<!-- ################################################################################################ -->
+				<div class="sectiontitle">
+					<h6 class="heading">Create Your own Album </h6>
+				</div>
+				<div class="group">
+					<div class="one_half first">
+						<p><strong>How to add photos ?</strong></p>
+						<p>Just Click on Create Album and then click on Add Photos Icon</p>
+						<!--direct it to a different html page -->
+						<footer><a class="btn" href="#">Create Album&raquo;</a></footer>
+					</div>
+				</div>
+				<!-- ################################################################################################ --> 
+			</section>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row3">
+			<section class="hoc container clear"> 
+				<!-- ################################################################################################ -->
+
+				<!--- i love u -->
+				<div class="wrapper row3">
+					<figure class="hoc clear"> 
+						<!-- ################################################################################################ -->
+						<ul class="nospace group logos">
+							<!--mine heading change according to file-->
+							<h5>View photos Online ;-)</h5>
+							<li class="one_quarter first"><a href="https://www.google.co.in/search?q=nature&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiYsLeO25rTAhWMwI8KHR67B7UQ_AUICCgB&biw=597&bih=591">
+
+									<img src="{{ url_for('static',filename='images/demo/nature.jpg') }} " alt="">
+
+								</a></li>
+
+
+								<li class="one_quarter"><a href="https://www.google.co.in/search?biw=597&bih=591&tbm=isch&sa=1&q=underwater&oq=underwater&gs_l=img.3..0l10.51698.55186.0.55449.11.8.0.3.3.0.195.805.0j6.6.0....0...1c.1.64.img..2.9.814.0..35i39k1j0i67k1.YVwZwhrrlYo">
+
+										<img src="{{ url_for('static',filename='images/demo/underwater.jpg') }} " alt="">
+
+
+									</a></li>
+									<li class="one_quarter"><a href="https://www.google.co.in/search?biw=597&bih=591&tbm=isch&sa=1&q=Wildlife&oq=Wildlife&gs_l=img.3..0i67k1l4j0l6.60357.62969.0.63597.9.7.0.2.2.0.208.721.0j4j1.5.0....0...1c.1.64.img..2.7.729.0..35i39k1.Y0q3-nNHw90">
+
+											<img src="{{ url_for('static',filename='images/demo/wildlife.jpg') }} " alt="">
+
+										</a></li>
+										<li class="one_quarter"><a href="https://www.google.co.in/search?biw=597&bih=591&tbm=isch&sa=1&q=cars&oq=cars&gs_l=img.3..0l10.36564.41064.0.41927.5.5.0.0.0.0.139.469.1j3.4.0....0...1c.1.64.img..1.4.465.0..35i39k1.p1BxBDhMZiY">
+
+												<img src="{{ url_for('static',filename='images/demo/cars.jpeg') }} " alt="">
+
+											</a></li>
+						</ul>
+						<!-- ################################################################################################ --> 
+					</figure>
+				</div>
+
+				<!-- ################################################################################################ --> 
+			</section>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+
+		<!--PLEASE CHEK HERE WHAT TO DO I CAN'T UNDERSTAND-->
+
+		<!--images/demo/backgrounds/b_develepors.jpeg-->
+		<div class="wrapper bgded overlay" id="pkili" >
+			<!--style="background-image:url('images/demo/backgrounds/b_develepors.jpeg');"-->
+			<section class="hoc container clear"> 
+				<!-- ################################################################################################ -->
+				<div class="sectiontitle">
+					<h6 class="heading">The Developers</h6>
+				</div>
+				<div class="group team">
+					<figure class="one_quarter first"><a href="#">
+
+							<img src="{{ url_for('static',filename='images/demo/320x320.png') }} " alt="">
+
+						</a>
+						<figcaption>
+						<h6 class="heading">Aditya Baskar</h6>
+						<em>Mentor</em>
+						<footer>
+							<ul class="faico clear">
+								<!--try to add faccebook-->
+								<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+
+						</footer>
+						</figcaption>
+					</figure>
+					<figure class="one_quarter"><a href="#">
+							<img src="{{ url_for('static',filename='images/demo/aashish.jpg') }} " alt="">
+
+						</a>
+						<figcaption>
+						<h6 class="heading">Aashish Gaba</h6>
+						<em>Student</em>
+						<footer>
+							<ul class="faico clear">
+								<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</footer>
+						</figcaption>
+					</figure>
+					<figure class="one_quarter"><a href="#">
+							<img src="{{ url_for('static',filename='images/demo/ali.jpeg') }} " alt="">
+
+						</a>
+						<figcaption>
+						<h6 class="heading">Ali Rizwi</h6>
+						<em>Student</em>
+						<footer>
+							<ul class="faico clear">
+								<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</footer>
+						</figcaption>
+					</figure>
+					<figure class="one_quarter"><a href="#">
+							<img src="{{ url_for('static',filename='images/demo/apoorav.jpg') }} " alt="">
+						</a>
+						<figcaption>
+						<h6 class="heading">Apoorav Kr Singh</h6>
+						<em>Student</em>
+						<footer>
+							<ul class="faico clear">
+								<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</footer>
+						</figcaption>
+					</figure>
+				</div>
+				<!-- ################################################################################################ -->
+				<div class="clear"></div>
+			</section>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+
+
+
+
+		<!---->
+
+
+
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row4">
+			<footer id="footer" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<div class="one_quarter">
+					<nav>
+						<ul class="nospace">
+							<li><a href="http://0.0.0.0:8080"><i class="fa fa-lg fa-home"></i></a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Terms</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Cookies</a></li>
+							<li><a href="#">Disclaimer</a></li>
+						</ul>
+					</nav>
+					<ul class="faico clear">
+						<li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+						<li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
+					</ul>
+				</div>
+				<div class="one_quarter">
+					<h6 class="heading">Detail about the site !</h6>
+					<article>
+						<h2 class="nospace font-x1"><a href="#">Read More</a></h2>
+						<time class="font-xs" datetime="2017-04-17">Friday, 17<sup>th</sup> April 2017</time>
+						<p>It was submitted as a project by Aashish , Ali , Apoorav on the above mentioned date :-) [&hellip;]</p>
+					</article>
+				</div>
+				<div class="one_quarter">
+					<h6 class="heading">Enim diam praesent</h6>
+					<ul class="nospace linklist">
+						<li><a href="#">Help ?</a></li>
+						<li><a href="#">Reviews</a></li>
+					</ul>
+				</div>
+				<!-- ################################################################################################ --> 
+			</footer>
+		</div>
+
+
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row5">
+			<div id="copyright" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Domain Name</a></p>
+				<p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+				<!-- ################################################################################################ --> 
+			</div>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
+		<!-- JAVASCRIPTS --> 
+
+		<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+
+		<script src="{{ url_for('static',filename='js/jquery.backtotop.js') }}"></script>
+
+		<script src="{{ url_for('static',filename='js/
+		jquery.mobilemenu.js') }}"></script>
+
+	</body>
+</html>

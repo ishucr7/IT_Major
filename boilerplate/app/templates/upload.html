@@ -7,13 +7,14 @@
   <body>
     <div class="container">
       <div class="header">
-        <h3 class="text-muted">How To Upload a File</h3>
+        <h3 class="text-muted">Upload ur DP</h3>
       </div>
       <hr/>
       <div>
       
-      <form action="upload" method="post" enctype="multipart/form-data">
+      <form action="/upload_pp" method="post" enctype="multipart/form-data">
         <input type="file" name="file"><br /><br />
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
         <input type="submit" value="Upload">
       </form>
       </div>

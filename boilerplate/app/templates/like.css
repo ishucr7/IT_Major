@@ -1,5 +1,5 @@
 .like, .dislike {
-    display: inline-block;
+/*    display: inline-block;*/
     margin-bottom: 0;
     font-weight: normal;
     text-align: center;
@@ -8,13 +8,13 @@
     background: lightgreen;
     border: 1px solid transparent;
     white-space: nowrap;
-    padding: 6px 12px;
+    padding: 6px 6px;
     font-size: 14px;
     line-height: 1.428571429;
     border-radius: 4px;
 }
 .qty1, .qty2 {
     border: none;
-    width:20px;
+    width:5px;
     background: transparent;
 }

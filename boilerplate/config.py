@@ -25,3 +25,6 @@ CSRF_SESSION_KEY = "secret"
 
 # Secret key for signing cookies
 SECRET_KEY = "secret"
+
+RECAPTCHA_PUBLIC_KEY = '6LfjSR8UAAAAAKZsyFVl1j29Zx058-ktmjtL2_6t'
+RECAPTCHA_PRIVATE_KEY = '6LfjSR8UAAAAAGAstMkLXtNbh6WmZ05KTRZu0h3O'

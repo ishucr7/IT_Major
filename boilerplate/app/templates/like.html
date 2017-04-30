@@ -1,5 +1,14 @@
 <html>
 <head>
+
+<style>
+#ph{
+height:400px;
+	width:500px;
+		
+		
+}
+</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script>
@@ -28,22 +37,46 @@ $(function () {
 
 
 <body>
+<div>
+	<a href="/photos">
+		<input type="button" name="Home" value="Home">
+	</a>	
+</div>
 
 	<p>{{photo.likes}}</p>
 <div class="container"> 
 
-	<a href="http://0.0.0.0:8080/increment/{{photo.id}}" class="like"><i class="fa fa-thumbs-o-up"></i>  
+	<a href="/increment/{{photo.id}}" class="like"><i class="fa fa-thumbs-o-up"></i>  
 		Like <input class="qty1" name="qty1" readonly="readonly" type="text" value="{{photo.likes}}" />
     </a>
-     <a href="http://0.0.0.0:8080/decrement/{{photo.id}}"  class="dislike"><i class="fa fa-thumbs-o-down"></i> 
+     <a href="/decrement/{{photo.id}}"  class="dislike"><i class="fa fa-thumbs-o-down"></i> 
 	     Dislike <input class="qty2"  name="qty2" readonly="readonly" type="text" value="{{photo.dislikes}}" />
     </a>
 
-
+<br /><br />
 </div>
+<div class="container">
+<p>{{photo.id}}   <br/>  {{photo.name}}</p>
+	<form action="/sharePhoto/{{photo.id}}" method="POST">
+	<input type="submit" value="Share" />
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
+	</form>
+</div>
+
+<br /><br />
+</div>
+<div class="container">
+<p>{{photo.id}}   <br/>  {{photo.name}}</p>
+	<form action="/deletePhoto/{{photo.id}}" method="POST">
+	<input type="submit" value="Delete" />
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
+	</form>
+</div>
+
 <div>
 	{% for com in comments %}
 	<div class="container">
+		{{com.username}}:
 		    <div class="panel panel-default">
 			        <div class="panel-body">{{com.text}}</div>
 		</div>
@@ -53,14 +86,15 @@ $(function () {
 
 <h5>Enter comment<h5>
 <div>
-	<form action="http://0.0.0.0:8080/addComment/{{photo.id}}" method="POST">
+	<form action="/addComment/{{photo.id}}" method="POST">
 	<input type="text" name="text" required/>
 	<input type="submit" value="Comment"/>
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
 	</form>
 </div>
 <div>
 
-	<img src="../static/uploads/{{photo.name}}" style="width:200px,height:150px;">
+	<img src="../static/uploads/{{photo.name}}" id="ph">
 
 	</div>
 </body>
