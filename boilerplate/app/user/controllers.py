@@ -123,7 +123,8 @@ def create_user():
         pass
     else:
         # FAILED
-        pass
+        flash('Fill the captcha')
+        return redirect('/register')
     u = User(name, email, password)
     db.session.add(u)
     

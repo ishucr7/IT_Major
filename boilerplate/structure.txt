@@ -1,18 +1,382 @@
 .
 ├── app
+│   ├── albums
+│   │   ├── controllers.py
+│   │   ├── controllers.pyc
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-34.pyc
+│   │       ├── __init__.cpython-35.pyc
+│   │       ├── models.cpython-34.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── apo.txt
+│   ├── comments
+│   │   ├── controllers.py
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-34.pyc
+│   │       ├── __init__.cpython-35.pyc
+│   │       ├── models.cpython-34.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── gen_mapp
+│   │   ├── controllers.py
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-35.pyc
+│   │       └── models.cpython-35.pyc
 │   ├── __init__.py
-│   ├── courses
-│   │   ├── __init__.py
+│   ├── __init__.py~
+│   ├── __init__.pyc
+│   ├── map_albphotos
 │   │   ├── controllers.py
-│   │   ├── models.py
-│   ├── enrolment
 │   │   ├── __init__.py
-│   │   ├── controllers.py
+│   │   ├── __init__.pyc
 │   │   ├── models.py
-│   └── students
-│       ├── __init__.py
-│       ├── controllers.py
-│       └── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-35.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── map_albums
+│   │   ├── controllers.py
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-35.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── mapp_photos
+│   │   ├── controllers.py
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   ├── mod.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-34.pyc
+│   │       ├── __init__.cpython-35.pyc
+│   │       ├── models.cpython-34.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── photos
+│   │   ├── controllers.py
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-34.pyc
+│   │       ├── __init__.cpython-35.pyc
+│   │       ├── models.cpython-34.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── __pycache__
+│   │   ├── __init__.cpython-34.pyc
+│   │   └── __init__.cpython-35.pyc
+│   ├── share_photos
+│   │   ├── controllers.py
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── models.py
+│   │   ├── models.pyc
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-35.pyc
+│   │       └── models.cpython-35.pyc
+│   ├── static
+│   │   ├── css
+│   │   │   ├── demo.css
+│   │   │   ├── font-awesome.min.css
+│   │   │   ├── fonts
+│   │   │   │   ├── FontAwesome.otf
+│   │   │   │   ├── fontawesome-webfont.eot
+│   │   │   │   ├── fontawesome-webfont.svg
+│   │   │   │   ├── fontawesome-webfont.ttf
+│   │   │   │   ├── fontawesome-webfont.woff
+│   │   │   │   ├── fontawesome-webfont.woff2
+│   │   │   │   └── index.html
+│   │   │   ├── framework.css
+│   │   │   ├── index.css
+│   │   │   ├── index.html
+│   │   │   ├── layout.css
+│   │   │   ├── layout-multi.css
+│   │   │   ├── layout-simple.css
+│   │   │   └── normalize.css
+│   │   ├── images
+│   │   │   ├── demo
+│   │   │   │   ├── 100x100.png
+│   │   │   │   ├── 222x100.png
+│   │   │   │   ├── 320x320.png
+│   │   │   │   ├── 480x186-vid.png
+│   │   │   │   ├── aashish.jpg
+│   │   │   │   ├── aditya.jpg
+│   │   │   │   ├── ali.jpeg
+│   │   │   │   ├── apoorav.jpg
+│   │   │   │   ├── avatar.png
+│   │   │   │   ├── backgrounds
+│   │   │   │   │   ├── 01.png
+│   │   │   │   │   ├── 02.png
+│   │   │   │   │   ├── 03.png
+│   │   │   │   │   ├── b_create.jpg
+│   │   │   │   │   ├── b_develepors.jpeg
+│   │   │   │   │   ├── b_galleryi.jpg
+│   │   │   │   │   ├── b_gallery.jpeg
+│   │   │   │   │   ├── cycle_user_name.jpg
+│   │   │   │   │   └── index.html
+│   │   │   │   ├── cars.jpeg
+│   │   │   │   ├── gallery
+│   │   │   │   │   ├── 01.png
+│   │   │   │   │   └── index.html
+│   │   │   │   ├── imgl.gif
+│   │   │   │   ├── imgr.gif
+│   │   │   │   ├── index.html
+│   │   │   │   ├── like.jpeg
+│   │   │   │   ├── like.jpg
+│   │   │   │   ├── lolo.jpg
+│   │   │   │   ├── nature.jpg
+│   │   │   │   ├── underwater.jpg
+│   │   │   │   └── wildlife.jpg
+│   │   │   ├── img
+│   │   │   │   ├── grid.svg
+│   │   │   │   ├── header01.jpg
+│   │   │   │   ├── header02.jpg
+│   │   │   │   ├── header03.jpg
+│   │   │   │   ├── item01.jpg
+│   │   │   │   ├── item02.jpg
+│   │   │   │   ├── item03.jpg
+│   │   │   │   ├── item04.jpg
+│   │   │   │   ├── item05.jpg
+│   │   │   │   ├── item06.jpg
+│   │   │   │   ├── item07.jpg
+│   │   │   │   ├── item08.jpg
+│   │   │   │   ├── item09.jpg
+│   │   │   │   ├── item10.jpg
+│   │   │   │   ├── item11.jpg
+│   │   │   │   ├── item12.jpg
+│   │   │   │   └── thumbs
+│   │   │   │       ├── thumb1.png
+│   │   │   │       ├── thumb2.png
+│   │   │   │       └── thumb3.png
+│   │   │   └── index.html
+│   │   ├── index.html
+│   │   ├── js
+│   │   │   ├── classie.js
+│   │   │   ├── index.html
+│   │   │   ├── jquery.backtotop.js
+│   │   │   ├── jquery.min.js
+│   │   │   ├── jquery.mobilemenu.js
+│   │   │   └── modernizr.custom.js
+│   │   ├── templates
+│   │   │   ├── basic-grid.html
+│   │   │   ├── full-width.html
+│   │   │   ├── gallery.html
+│   │   │   ├── index.html
+│   │   │   ├── sidebar-left.html
+│   │   │   └── sidebar-right.html
+│   │   └── uploads
+│   │       └── profile_pics
+│   │           └── pro.jpg
+│   ├── templates
+│   │   ├── album.html
+│   │   ├── algenius
+│   │   │   ├── images
+│   │   │   │   ├── demo
+│   │   │   │   │   ├── 100x100.png
+│   │   │   │   │   ├── 222x100.png
+│   │   │   │   │   ├── 320x320.png
+│   │   │   │   │   ├── 480x186-vid.png
+│   │   │   │   │   ├── aashish.jpg
+│   │   │   │   │   ├── ali.jpeg
+│   │   │   │   │   ├── apoorav.jpg
+│   │   │   │   │   ├── avatar.png
+│   │   │   │   │   ├── backgrounds
+│   │   │   │   │   │   ├── 01.png
+│   │   │   │   │   │   ├── 02.png
+│   │   │   │   │   │   ├── 03.png
+│   │   │   │   │   │   ├── b_create.jpg
+│   │   │   │   │   │   ├── b_develepors.jpeg
+│   │   │   │   │   │   ├── b_galleryi.jpg
+│   │   │   │   │   │   ├── b_gallery.jpeg
+│   │   │   │   │   │   ├── cycle_user_name.jpg
+│   │   │   │   │   │   └── index.html
+│   │   │   │   │   ├── cars.jpeg
+│   │   │   │   │   ├── gallery
+│   │   │   │   │   │   ├── 01.png
+│   │   │   │   │   │   └── index.html
+│   │   │   │   │   ├── imgl.gif
+│   │   │   │   │   ├── imgr.gif
+│   │   │   │   │   ├── index.html
+│   │   │   │   │   ├── nature.jpg
+│   │   │   │   │   ├── underwater.jpg
+│   │   │   │   │   └── wildlife.jpg
+│   │   │   │   └── index.html
+│   │   │   ├── index.html
+│   │   │   ├── layout
+│   │   │   │   ├── index.html
+│   │   │   │   ├── scripts
+│   │   │   │   │   ├── index.html
+│   │   │   │   │   ├── jquery.backtotop.js
+│   │   │   │   │   ├── jquery.min.js
+│   │   │   │   │   └── jquery.mobilemenu.js
+│   │   │   │   └── styles
+│   │   │   │       ├── font-awesome.min.css
+│   │   │   │       ├── fonts
+│   │   │   │       │   ├── FontAwesome.otf
+│   │   │   │       │   ├── fontawesome-webfont.eot
+│   │   │   │       │   ├── fontawesome-webfont.svg
+│   │   │   │       │   ├── fontawesome-webfont.ttf
+│   │   │   │       │   ├── fontawesome-webfont.woff
+│   │   │   │       │   ├── fontawesome-webfont.woff2
+│   │   │   │       │   └── index.html
+│   │   │   │       ├── framework.css
+│   │   │   │       ├── index.html
+│   │   │   │       └── layout.css
+│   │   │   ├── licence.txt
+│   │   │   └── pages
+│   │   │       ├── basic-grid.html
+│   │   │       ├── full-width.html
+│   │   │       ├── gallery.html
+│   │   │       ├── index.html
+│   │   │       ├── sidebar-left.html
+│   │   │       └── sidebar-right.html
+│   │   ├── css
+│   │   │   ├── demo.css
+│   │   │   ├── layout-multi.css
+│   │   │   ├── layout-simple.css
+│   │   │   └── normalize.css
+│   │   ├── error.html
+│   │   ├── fonts
+│   │   │   └── codropsicons
+│   │   │       ├── codropsicons.eot
+│   │   │       ├── codropsicons.svg
+│   │   │       ├── codropsicons.ttf
+│   │   │       ├── codropsicons.woff
+│   │   │       └── license.txt
+│   │   ├── force.html
+│   │   ├── gallery.html
+│   │   ├── img
+│   │   │   ├── grid.svg
+│   │   │   ├── header01.jpg
+│   │   │   ├── header02.jpg
+│   │   │   ├── header03.jpg
+│   │   │   ├── item01.jpg
+│   │   │   ├── item02.jpg
+│   │   │   ├── item03.jpg
+│   │   │   ├── item04.jpg
+│   │   │   ├── item05.jpg
+│   │   │   ├── item06.jpg
+│   │   │   ├── item07.jpg
+│   │   │   ├── item08.jpg
+│   │   │   ├── item09.jpg
+│   │   │   ├── item10.jpg
+│   │   │   ├── item11.jpg
+│   │   │   ├── item12.jpg
+│   │   │   └── thumbs
+│   │   │       ├── thumb1.png
+│   │   │       ├── thumb2.png
+│   │   │       └── thumb3.png
+│   │   ├── inda.html
+│   │   ├── index.html
+│   │   ├── indonesia.html
+│   │   ├── jadu.txt
+│   │   ├── js
+│   │   │   ├── classie.js
+│   │   │   └── modernizr.custom.js
+│   │   ├── licence.txt
+│   │   ├── like.css
+│   │   ├── like.html
+│   │   ├── like.jpeg
+│   │   ├── login.html
+│   │   ├── lol.html
+│   │   ├── phot.html
+│   │   ├── README.md
+│   │   ├── show.html
+│   │   ├── slide.html
+│   │   ├── SlidingHeaderLayout
+│   │   │   ├── css
+│   │   │   │   ├── demo.css
+│   │   │   │   ├── layout-multi.css
+│   │   │   │   ├── layout-simple.css
+│   │   │   │   └── normalize.css
+│   │   │   ├── fonts
+│   │   │   │   └── codropsicons
+│   │   │   │       ├── codropsicons.eot
+│   │   │   │       ├── codropsicons.svg
+│   │   │   │       ├── codropsicons.ttf
+│   │   │   │       ├── codropsicons.woff
+│   │   │   │       └── license.txt
+│   │   │   ├── img
+│   │   │   │   ├── grid.svg
+│   │   │   │   ├── header01.jpg
+│   │   │   │   ├── header02.jpg
+│   │   │   │   ├── header03.jpg
+│   │   │   │   ├── item01.jpg
+│   │   │   │   ├── item02.jpg
+│   │   │   │   ├── item03.jpg
+│   │   │   │   ├── item04.jpg
+│   │   │   │   ├── item05.jpg
+│   │   │   │   ├── item06.jpg
+│   │   │   │   ├── item07.jpg
+│   │   │   │   ├── item08.jpg
+│   │   │   │   ├── item09.jpg
+│   │   │   │   ├── item10.jpg
+│   │   │   │   ├── item11.jpg
+│   │   │   │   ├── item12.jpg
+│   │   │   │   └── thumbs
+│   │   │   │       ├── thumb1.png
+│   │   │   │       ├── thumb2.png
+│   │   │   │       └── thumb3.png
+│   │   │   ├── index.html
+│   │   │   ├── js
+│   │   │   │   ├── classie.js
+│   │   │   │   └── modernizr.custom.js
+│   │   │   ├── layout-multi.html
+│   │   │   └── README.md
+│   │   ├── test.html
+│   │   ├── upload.html
+│   │   └── useless
+│   │       ├── galtiindex.html
+│   │       ├── indonesia.html
+│   │       ├── jadu.txt
+│   │       ├── layout-multi.html
+│   │       ├── test.html
+│   │       └── upload.html
+│   ├── uploads
+│   └── user
+│       ├── cont.py
+│       ├── controllers.py
+│       ├── controllers.py~
+│       ├── controllers.pyc
+│       ├── __init__.py
+│       ├── __init__.pyc
+│       ├── lol.py
+│       ├── models.py
+│       ├── models.pyc
+│       └── __pycache__
+│           ├── controllers.cpython-34.pyc
+│           ├── controllers.cpython-35.pyc
+│           ├── __init__.cpython-34.pyc
+│           ├── __init__.cpython-35.pyc
+│           ├── models.cpython-34.pyc
+│           └── models.cpython-35.pyc
+├── app.db
 ├── config.py
+├── config.pyc
+├── myproject.ini
+├── __pycache__
+│   ├── config.cpython-34.pyc
+│   └── config.cpython-35.pyc
+├── README.md
+├── requirements.txt
 ├── run.py
-└── requirements.txt
+├── structure.txt
+├── wsgi.py
+└── wsgi.pyc
+
+60 directories, 319 files
