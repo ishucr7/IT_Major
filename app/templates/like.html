@@ -1,0 +1,101 @@
+<html>
+<head>
+
+<style>
+#ph{
+height:400px;
+	width:500px;
+		
+		
+}
+</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function () {
+         $(".like").click(function () {
+             var input = $(this).find('.qty1');
+             input.val(parseInt(input.val())+ 1);
+    
+         });
+     $(".dislike").click(function () {
+         var input = $(this).find('.qty2');
+         input.val(input.val() - 1);
+     });
+  });
+</script>
+
+<link rel="stylesheet" href="like.css">
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	 
+
+
+<body>
+<div>
+	<a href="/photos">
+		<input type="button" name="Home" value="Home">
+	</a>	
+</div>
+
+	<p>{{photo.likes}}</p>
+<div class="container"> 
+
+	<a href="/increment/{{photo.id}}" class="like"><i class="fa fa-thumbs-o-up"></i>  
+		Like <input class="qty1" name="qty1" readonly="readonly" type="text" value="{{photo.likes}}" />
+    </a>
+     <a href="/decrement/{{photo.id}}"  class="dislike"><i class="fa fa-thumbs-o-down"></i> 
+	     Dislike <input class="qty2"  name="qty2" readonly="readonly" type="text" value="{{photo.dislikes}}" />
+    </a>
+
+<br /><br />
+</div>
+<div class="container">
+<p>{{photo.id}}   <br/>  {{photo.name}}</p>
+	<form action="/sharePhoto/{{photo.id}}" method="POST">
+	<input type="submit" value="Share" />
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
+	</form>
+</div>
+
+<br /><br />
+</div>
+<div class="container">
+<p>{{photo.id}}   <br/>  {{photo.name}}</p>
+	<form action="/deletePhoto/{{photo.id}}" method="POST">
+	<input type="submit" value="Delete" />
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
+	</form>
+</div>
+
+<div>
+	{% for com in comments %}
+	<div class="container">
+		{{com.username}}:
+		    <div class="panel panel-default">
+			        <div class="panel-body">{{com.text}}</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+<h5>Enter comment<h5>
+<div>
+	<form action="/addComment/{{photo.id}}" method="POST">
+	<input type="text" name="text" required/>
+	<input type="submit" value="Comment"/>
+	<input type="hidden" name="_csrf_token" value="csrf_token()">
+	</form>
+</div>
+<div>
+
+	<img src="../static/uploads/{{photo.name}}" id="ph">
+
+	</div>
+</body>
+</html>

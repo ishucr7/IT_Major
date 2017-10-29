@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+	Template Name: Algenius
+	Author: <a href="http://www.os-templates.com/">OS Templates</a>
+	Author URI: http://www.os-templates.com/
+	Licence: Free to use under our free template licence terms
+	Licence URI: http://www.os-templates.com/template-terms
+-->
+<html lang="">
+	<head>
+
+		<title>Photo Gallery| Gallery</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!--<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/layout.css') }}" media="all">
+		-->
+		<link href="../static/css/layout.css" rel="stylesheet" type="text/css" media="all">
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+#vis{
+	color:blue;
+
+}
+</style>
+		<script>
+var arr=[];
+var changecolor=function(thi,l)
+{
+
+	if(String(thi.id)!="mg")
+	{
+		thi.id="mg";
+		arr.push(String(l));
+	
+	}
+	else
+	{
+		var ind=arr.indexOf(String(l));
+		arr.splice(ind,1);
+		thi.id="ma";
+	}
+}
+
+function p()
+{
+
+str=arr.join(" ");	
+var y=document.getElementById("hid");
+y.value=str;
+alert(y.value);
+
+}
+		</script>
+
+
+
+		<style>
+#bi{
+	background-image:url('../static/images/demo/backgrounds/b_galleryi.jpg');
+
+}
+								#plz{
+									height:80px;					
+								}
+								#pok{
+									padding-top:5px;	
+								}
+
+								#mg{
+									border: 5px solid red;
+								}
+
+								#ma{
+
+									border:none;
+
+								}
+
+#hid{
+display:none;
+}
+		</style>
+
+	</head>
+	<body id="top">
+		<div class="wrapper row1" id="plz">
+			<header id="pok" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<div id="plz" class="f_left">
+					<h1>		<a href="/">Photo Gallery</a>
+					</h1>
+				</div>
+				<!-- ################################################################################################ --> 
+			</header>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper row2">
+			<nav id="mainav" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+				<ul class="clear">
+					<li><a  href="/photos">Gallery</a>
+
+					</li>
+
+					<!-- ################################################################################################ --> 
+			</nav>
+		</div>
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ --> 
+		<!-- ################################################################################################ -->
+		<div class="wrapper bgded overlay" id="bi" >
+			<section id="breadcrumba" class="hoc clear"> 
+				<!-- ################################################################################################ -->
+			<div id="gallery">
+				<h1>
+					<div>{{user.name}}</div>
+				</h1>
+				<div class="containe">
+					<div class="header">
+						<h3 class="text-muted">Create Album</h3>
+					</div>
+					<hr/>
+					<div>
+
+						<form action="/dont" method="POST" enctype="multipart/form-data">
+							Album Name:<input id="vis" type="text" name="album_name" required ><br /><br />
+							<input type="text" name="hidden" id="hid" >
+							<p>send it</p>
+<div><button  type="button" onclick="p()" value="lolq"></button></div>
+							<input type="hidden" name="_csrf_token" value="csrf_token()">								
+							<input type="submit" id="vis" value="Create">
+						</form>
+							<br />
+							<hr/>
+					</div>
+				</div>
+			</section>
+			</div>
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ --> 
+			<!--i ################################################################################################ -->
+			<div class="wrapper row3">
+				<main class="hoc container clear"> 
+				<!-- main body --> 
+				<!-- ################################################################################################ -->
+				<div class="content"> 
+					<!-- ################################################################################################ -->
+					<div id="gallery">
+						<figure>
+							<header class="heading">Gallery :--  My Photos</header>
+							<ul class="nospace clear">
+
+								{% for i in photos %}
+
+								<li class="one_quarter">
+									<!--	<img id="lol" class="lola" onclick="this.style.border='5px solid red'"	src="{{ url_for('static',filename='/'.join(['uploads',i.name])) }}"  alt=""/>
+									-->	
+
+									<img id="lol" class="lola" 
+		       src="{{ url_for('static',filename='/'.join(['uploads',i.name])) }}"  onclick="changecolor(this,{{i.id}})" alt=""/>
+									<!--<img id="lol" class="lola"									
+		 onclick="document.getElementById('lol').style.border='5px solid red'"	src="{{ url_for('static',filename='/'.join(['uploads',i.name])) }}"  alt=""/>
+									-->								<p>{{i.id}}  {{i.name}}</p></li>
+								{% endfor %}
+
+
+							</ul>
+						</figure>
+					</div>
+					<!-- ################################################################################################ --> 
+					<!-- ################################################################################################ -->
+					<!-- ################################################################################################ --> 
+				</div>
+				<div class="clear"></div>
+				</main>
+			</div>
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ -->
+			<!-- ################################################################################################ -->
+
+
+
+
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ -->
+			<!-- ################################################################################################ -->
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ --> 
+			<!-- ################################################################################################ --> 
+			<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
+			<!-- JAVASCRIPTS --> 
+			<script src="{{ url_for('static',filename='js/min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/backtotop.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/mobilemenu.js') }}"></script>
+
+
+	</body>
+</html>

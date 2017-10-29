@@ -1,0 +1,19 @@
+<html>
+<body>
+
+<div>
+<p>
+lolo
+</p>
+<div>{{user.name}}</div>
+<div>
+{% for photo in photos %}
+<div>{{ photo.privacy }}</div>
+
+<div><img src="../uploads/{{photo.name}}"</div>
+
+{% endfor %}
+</div>
+
+</body>
+</html>
